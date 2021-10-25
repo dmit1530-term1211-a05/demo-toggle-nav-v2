@@ -1,0 +1,137 @@
+body {
+    background-color: #192f5e;
+    font-family: sans-serif;
+}
+
+/* *************** header & nav ************** */
+header {
+    background-color: #fff;
+    padding: 2%;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #3f3f3f;
+    text-decoration: none;
+}
+
+.toggle-icon span {
+    width: 30px;
+    height: 4px;
+    margin-bottom: 6px;
+    border-radius: 100px;
+    background-color: #3f3f3f;
+    display: block;
+    position: relative;
+    transition: all 0.5s ease;
+}
+/** when the menu is open the toggle icon will create a 'x' */
+.show-nav .toggle-icon span:first-child {
+    display: none; /* hided the first span element **/
+}
+
+.show-nav .toggle-icon span:nth-child(2) {
+    transform: rotate(45deg);
+    top: 10px;
+    background-color: blueviolet;
+}
+
+.show-nav .toggle-icon span:last-child{
+    transform: rotate(-45deg);
+    background-color: darkcyan;
+}
+
+
+.menu-links li {
+    line-height: 40px;
+    text-align: center;
+}
+
+.menu-links a {
+    display: block;
+}
+
+
+header nav {
+    /* style this for how it looks overlapping the main content */
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
+    width: 100vw; /** expands the menu and menu background 100%/vw of the viewport **/
+    left: 0; /** forces the menu to start on the left-hand side */
+    top: 3.75rem; /** the height of the closed header **/
+
+    /** hide the menu **/
+    max-height: 0; /* removes all the height, however content is visible */
+    overflow: hidden; /* removes/hide the rest of the content **/
+
+    transition: max-height 0.7s ease-in-out;
+
+}
+ul.menu {
+    padding-bottom: 1rem;
+}
+.show-nav nav {
+    /* add CSS here */
+    max-height: 250px;
+}
+
+/* ************ section ************ */
+section {
+    padding: 3.125rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+section p {
+    color: #d5e294;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #d5e294;
+    font-size: 1.777rem;
+    width: 35%;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #fff;
+    font-size: 3.157rem;
+}
+
+
+
+@media only screen and (min-width: 600px) {
+    .toggle-icon {
+        display: none;
+    }
+
+    header nav {
+        /* reset the position value and width */
+        /** position static is how elements are normally placed - unsetting the absolute value **/
+        position: static;
+        /** reset the width */
+        width: auto; /** width: initial */
+        max-height: 250px;
+        overflow: visible;
+    }
+
+    .menu-links,
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu-links li {
+        padding: 0 5px;
+        margin: 0 3px;
+    }
+
+    .menu-links li:hover {
+        background-color: #dde7e9;
+        border-radius: 8px;
+    }
+}
